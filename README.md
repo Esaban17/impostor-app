@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Juego del Impostor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un juego de deducción social en tiempo real donde los jugadores deben colaborar para identificar al impostor entre ellos. El juego está construido con React y utiliza Socket.IO para la comunicación en tiempo real.
 
-## Available Scripts
+## Sobre el Juego
 
-In the project directory, you can run:
+El juego está inspirado en juegos de deducción social como Among Us y Mafia. Al principio del juego se elige un impostor en secreto. Los demás jugadores no saben quién es el impostor. El objetivo de los jugadores es desenmascarar al impostor, mientras que el objetivo del impostor es eliminar a los demás jugadores sin ser descubierto.
 
-### `npm start`
+## Cómo Jugar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+El juego se desarrolla en rondas, y cada ronda consta de varias fases:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1.  **Lobby (Sala de espera):** Los jugadores se unen a una sala de juego (`sala`). Cuando se han unido suficientes jugadores, el anfitrión puede iniciar el juego.
 
-### `npm test`
+2.  **Fase de Comentario:** En esta fase, se presenta un tema o una pregunta a los jugadores. Cada jugador debe escribir un comentario. Sin embargo, el impostor no ve el tema y debe escribir un comentario que se mezcle con los de los demás para no levantar sospechas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3.  **Fase de Votación:** Se revelan todos los comentarios a los jugadores. A continuación, los jugadores debaten y votan por la persona que creen que es el impostor.
 
-### `npm run build`
+4.  **Fase de Resultado:** El jugador con más votos es eliminado del juego. A continuación, se revela si el jugador eliminado era el impostor o no.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5.  **Fin del Juego:** El juego termina cuando se cumple una de las siguientes condiciones:
+    *   Los jugadores ganan al eliminar al impostor.
+    *   El impostor gana al eliminar a suficientes jugadores.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Características
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*   **Multijugador en Tiempo Real:** Participa en emocionantes partidas en tiempo real con amigos.
+*   **Sistema de Salas:** Crea o únete a salas de juego para jugar.
+*   **Juego por Fases:** El juego progresa a través de fases estructuradas, desde la sala de espera hasta el resultado final.
+*   **Deducción Social:** Pon a prueba tu intuición y tus habilidades de engaño.
 
-### `npm run eject`
+## Tecnologías Utilizadas
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+*   **Frontend:** React
+*   **Comunicación en Tiempo Real:** [Socket.IO Client](https://socket.io/docs/v4/client-api/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Nota:** Este repositorio contiene únicamente el cliente del frontend. Se necesita un servidor de backend que implemente la lógica del juego y gestione los eventos de Socket.IO para poder jugar.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Cómo Empezar
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Para ejecutar este proyecto localmente, sigue estos pasos:
 
-## Learn More
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/tu-usuario/tu-repositorio.git
+    cd tu-repositorio
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3.  **Ejecuta la aplicación:**
+    ```bash
+    npm start
+    ```
+    La aplicación estará disponible en `http://localhost:3000`.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4.  **Ejecuta las pruebas:**
+    ```bash
+    npm test
+    ```
+    Esto ejecutará las pruebas en modo interactivo.
