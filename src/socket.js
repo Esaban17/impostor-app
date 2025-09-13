@@ -1,7 +1,13 @@
-import { io } from 'socket.io-client';
+﻿import { io } from 'socket.io-client';
 
-const socketUrl = process.env.REACT_APP_SOCKET_URL || 'http://192.168.0.4:3001';
+// URL del backend en producción o desarrollo
+const socketUrl = process.env.REACT_APP_SOCKET_URL || 
+                  process.env.REACT_APP_API_URL || 
+                  'http://localhost:3001';
 
-const socket = io(socketUrl);
+const socket = io(socketUrl, {
+  transports: ['websocket', 'polling'],
+  upgrade: true
+});
 
 export default socket;
